@@ -22,7 +22,7 @@ public class MovieRepository {
     }
 
     public List<Movies> findAll() {
-    	List<Movies> good = morphia.datastore().createQuery(Movies.class).order("-createdDateTime")
+    	List<Movies> movies = morphia.datastore().createQuery(Movies.class).order("-createdDateTime")
     				.project("_id", true)
     				.project("title", true)
     				.project("year", true)
@@ -31,7 +31,7 @@ public class MovieRepository {
     				.project("genre", true)
     				.project("createdDateTime", true)
     				.asList();
-    	return good;
+    	return movies;
     }
     
     public String addMovie(Movies movie) {
