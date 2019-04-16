@@ -22,6 +22,8 @@ public class MyMongoClientFactory  extends MongoClientFactory {
     public MongoClient createClient() throws Exception {
         return new MongoClient(Arrays.asList(
                 new ServerAddress("localhost", 27017)
+                //,new ServerAddress("localhost", 27018)
+                //,new ServerAddress("localhost", 27019)
         	)
         );
     }

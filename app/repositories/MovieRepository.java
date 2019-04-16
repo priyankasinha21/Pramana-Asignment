@@ -22,11 +22,20 @@ public class MovieRepository {
     }
 
     public List<Movies> findAll() {
-    	List<Movies> good = morphia.datastore().createQuery(Movies.class).order("-createdDateTime").asList();
+    	List<Movies> good = morphia.datastore().createQuery(Movies.class).order("-createdDateTime")
+    				.project("_id", true)
+    				.project("title", true)
+    				.project("year", true)
+    				.project("rated", true)
+    				.project("released", true)
+    				.project("genre", true)
+    				.project("createdDateTime", true)
+    				.asList();
     	return good;
     }
     
     public String addMovie(Movies movie) {
+    	morphia.datastore().ensureIndexes();
         String movieAdded = morphia.datastore().save(movie).getId().toString(); 
         if(movieAdded != null)
         	return "success";

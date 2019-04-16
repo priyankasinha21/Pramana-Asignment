@@ -8,8 +8,12 @@ import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
 
 import xyz.morphia.annotations.Entity;
+import xyz.morphia.annotations.Field;
 import xyz.morphia.annotations.Id;
+import xyz.morphia.annotations.Index;
+import xyz.morphia.annotations.IndexOptions;
 import xyz.morphia.annotations.Indexed;
+import xyz.morphia.annotations.Indexes;
 import xyz.morphia.utils.IndexDirection;
 
 @Entity(value="movies")
@@ -22,7 +26,10 @@ public class Movies {
 	private String year;
 	private String rated;
 	private Date released;
+	
+	@Indexed(options = @IndexOptions(name="genre"))
 	private List<String> genre;
+	
 	private String createdBy;
 	private Date createdDateTime;
 	

@@ -1,7 +1,6 @@
 package controllers;
 
 import javax.inject.Inject;
-
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
@@ -14,7 +13,7 @@ public class MovieController extends Controller {
 	
 	//Get movies list sorted by create date time
 	public Result getMovies() {
-    	String movies = "";
+		String movies = "";
 		try {
 			movies = movieService.getAllMovies();
 		} catch (Exception e) {
